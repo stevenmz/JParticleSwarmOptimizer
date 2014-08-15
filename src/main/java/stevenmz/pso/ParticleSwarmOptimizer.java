@@ -289,6 +289,5 @@ public class ParticleSwarmOptimizer {
          * evaluate method.
          */
         Number[] getRandomSolution();
-
     }
 }

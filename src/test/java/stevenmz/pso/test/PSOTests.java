@@ -33,6 +33,7 @@ import org.junit.Test;
 import stevenmz.pso.ParticleSwarmOptimizer;
 
 /**
+ * This test class exercises the ParticleSwarmOptimizer class
  *
  * @author Steven Alan Magaña-Zook <smaganazook ~~at~~ live dot com>
  */
@@ -59,12 +60,14 @@ public class PSOTests {
 
     @Test
     public void PolynomialMinimizationTest() {
+        final int NUMBER_OF_PARTICLES = 10;
+        final int NUMBER_OF_ITERATIONS = 100;
+
         ParticleSwarmOptimizer optimizer = new ParticleSwarmOptimizer(new ParticleSwarmOptimizer.IParticleFunctionEvaluator() {
 
             @Override
             public double Evaluate(Number... potentialSolution) {
                 return 3 + Math.pow(potentialSolution[0].intValue(), 2) + Math.pow(potentialSolution[1].intValue(), 2);
-
             }
 
             @Override
@@ -75,16 +78,10 @@ public class PSOTests {
                 solution[1] = r.nextInt();
                 return solution;
             }
-        }, 100, 1000, ParticleSwarmOptimizer.OptimizationType.MINIMIZE);
+        }, NUMBER_OF_PARTICLES, NUMBER_OF_ITERATIONS, ParticleSwarmOptimizer.OptimizationType.MINIMIZE);
         ParticleSwarmOptimizer.Particle optimalPartical = optimizer.optimize();
         final Number[] bestSolution = optimalPartical.getLocalBestSolution();
         Assert.assertEquals(0, bestSolution[0].intValue());
         Assert.assertEquals(0, bestSolution[1].intValue());
     }
-
-    // TODO add test methods here.
-    // The methods must be annotated with annotation @Test. For example:
-    //
-    // @Test
-    // public void hello() {}
 }
