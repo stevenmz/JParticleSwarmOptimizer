@@ -20,7 +20,7 @@ This project follows the maven convention for java projects, and has only one ex
 
 
 ###Example Use: Minimize the function f(a,b,c) = 1234 + a^2 + b^2 + c^2
-```
+```java
 // set the hyper-parameters used by the particle swarm optimization algorithm.
 // Experiment with different values to see the rate of execution and accuracy
 final int NUMBER_OF_PARTICLES = 10; 
